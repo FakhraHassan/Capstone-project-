@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -8,12 +8,12 @@ const Dashboard = () => {
   const [deadline, setDeadline] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchTasks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem("authToken");
+    navigate("/");
+  }, [navigate]);
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       const token = localStorage.getItem("authToken");
       const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
@@ -27,12 +27,11 @@ const Dashboard = () => {
         handleLogout();
       }
     }
-  };
+  }, [handleLogout]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    navigate("/");
-  };
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
 
   const addTask = async () => {
     if (!title) return;
