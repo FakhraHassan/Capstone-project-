@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Hello Kitty Pastel Palette */
+  --bg-color: #fff0f5;
+  /* Lavender Blush - General Background */
+  --card-bg: #ffffff;
+  /* White - Card Background */
+
+  --primary: #ffb7c5;
+  /* Baby Pink - Primary Buttons/Highlights */
+  --primary-hover: #ff69b4;
+  /* Hot Pink - Hover State */
+
+  --secondary: #fdfd96;
+  /* Pastel Yellow - Accents/Stars */
+  --accent-blue: #cae9f5;
+  /* Light Sky Blue - Secondary Accents */
+
+  --text-primary: #5a5a5a;
+  /* Soft Charcoal - Main Text */
+  --text-secondary: #8b8b8b;
+  /* Light Gray - Subtext */
+
+  --border-color: #ffe4e1;
+  /* Misty Rose - Borders */
+
+  --danger: #ff6b6b;
+  /* Soft Red - Errors */
+  --success: #98fb98;
+  /* Pale Green - Success */
+
+  --radius: 25px;
+  /* Extra rounded corners */
+  --shadow: 0 10px 25px rgba(255, 183, 197, 0.3);
+  /* Soft pink shadow */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  background-image:
+    radial-gradient(var(--primary) 15%, transparent 16%),
+    radial-gradient(var(--secondary) 15%, transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-hover);
+  font-weight: 800;
+  /* Extra bold for cuteness */
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 0px #fff;
+  letter-spacing: 0.5px;
+}
+
+/* Utilities */
+.kitty-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.kitty-panel {
+  background: var(--card-bg);
+  border: 4px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.kitty-panel::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 0 0 20px 20px;
+  opacity: 0.6;
+}
+
+.kitty-panel:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+.kitty-header {
+  border-bottom: 3px dotted var(--border-color);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--primary);
+  color: white;
+  border: 4px solid white;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+.btn-secondary {
+  background-color: var(--accent-blue);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #87ceeb;
+}
+
+.btn-danger {
+  background-color: var(--danger);
+}
+
+/* Form Elements */
+.input-field {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border: 3px solid var(--border-color);
+  border-radius: 50px;
+  /* Pill shape */
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.input-field::placeholder {
+  color: #d1d1d1;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 5px rgba(255, 183, 197, 0.4);
+}
+
+/* Typography Helpers */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+/* List Styles */
+ul {
+  list-style: none;
+}
+
+li {
+  background: white;
+  margin-bottom: 0.8rem;
+  padding: 1.2rem;
+  border-radius: 20px;
+  border: 2px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+li:hover {
+  border-color: var(--secondary);
+  transform: translateX(5px);
+  background: #fffdf0;
+  /* Very light yellow tint */
+}
+
+.task-completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+  background: #f0f0f0;
+}
+
+/* Cute decorative classes */
+.bow-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--danger);
+  mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/><path d="M21.5 9.5c-.83 0-1.5.67-1.5 1.5 0 .15.03.29.08.42l-3.35 1.67c-.28-.56-.86-.94-1.53-.94-.23 0-.45.05-.65.13l-2.05-4.1C13.2 7.55 12.64 7 12 7s-1.2.55-1.5 1.18l-2.05 4.1c-.2-.09-.42-.14-.65-.14-.67 0-1.25.38-1.53.94l-3.35-1.67c.05-.13.08-.27.08-.42 0-.83-.67-1.5-1.5-1.5S0 10.17 0 11s.67 1.5 1.5 1.5c.23 0 .45-.05.65-.13l3.35 1.67c.28.56.86.94 1.53.94 1.1 0 2-.9 2-2 0-.15-.03-.29-.08-.42l2.05-4.1c.14-.28.42-.46.75-.46s.61.18.75.46l2.05 4.1c-.05.13-.08.27-.08.42 0 1.1.9 2 2 2 .67 0 1.25-.38 1.53-.94l3.35 1.67c-.05.13-.08.27-.08.42 0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/></svg>') no-repeat center;
+  mask-size: contain;
+  margin-right: 8px;
+}
+
+.task-overdue {
+  border-color: var(--danger);
+  background-color: #fff0f0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+  }
+}
+
+.section-title {
+  color: var(--text-secondary);
+  margin: 1.5rem 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: var(--border-color);
+  margin-left: 1rem;
+  border-radius: 2px;
+}
