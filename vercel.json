@@ -1,7 +1,7 @@
 {
     "builds": [
         {
-            "src": "backend/project_capstone/wsgi.py",
+            "src": "backend/backend/wsgi.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
@@ -19,7 +19,7 @@
     "routes": [
         {
             "src": "/api/(.*)",
-            "dest": "backend/project_capstone/wsgi.py"
+            "dest": "backend/backend/wsgi.py"
         },
         {
             "src": "/(.*)",
