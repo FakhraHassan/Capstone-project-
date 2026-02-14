@@ -13,7 +13,8 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:8000/api/users/register/", {
+      const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+      await axios.post(`${API_URL}/api/users/register/`, {
         username,
         email,
         password,

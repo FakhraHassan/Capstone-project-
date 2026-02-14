@@ -15,7 +15,8 @@ const Dashboard = () => {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.get("http://127.0.0.1:8000/api/tasks/", {
+      const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+      const res = await axios.get(`${API_URL}/api/tasks/`, {
         headers: { Authorization: `Token ${token}` },
       });
       setTasks(res.data);
@@ -36,7 +37,8 @@ const Dashboard = () => {
     if (!title) return;
     try {
       const token = localStorage.getItem("authToken");
-      await axios.post("http://127.0.0.1:8000/api/tasks/", {
+      const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+      await axios.post(`${API_URL}/api/tasks/`, {
         title,
         description: "",
         completed: false,
@@ -55,7 +57,8 @@ const Dashboard = () => {
   const deleteTask = async (id) => {
     try {
       const token = localStorage.getItem("authToken");
-      await axios.delete(`http://127.0.0.1:8000/api/tasks/${id}/`, {
+      const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+      await axios.delete(`${API_URL}/api/tasks/${id}/`, {
         headers: { Authorization: `Token ${token}` },
       });
       fetchTasks();
@@ -67,7 +70,8 @@ const Dashboard = () => {
   const toggleTask = async (task) => {
     try {
       const token = localStorage.getItem("authToken");
-      await axios.patch(`http://127.0.0.1:8000/api/tasks/${task.id}/`, {
+      const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+      await axios.patch(`${API_URL}/api/tasks/${task.id}/`, {
         completed: !task.completed
       }, {
         headers: { Authorization: `Token ${token}` },
